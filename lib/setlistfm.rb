@@ -1,5 +1,4 @@
-require "setlistfm/version"
 
-module Setlistfm
-  # Your code goes here...
+class Setlistfm
+  VERSION = "0.0.1"
 end
