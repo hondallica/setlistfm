@@ -28,7 +28,7 @@ setlistfm = Setlistfm.new
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/setlistfm.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hondallica/setlistfm.
 
 
 ## License
