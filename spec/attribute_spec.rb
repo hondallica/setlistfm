@@ -2,6 +2,15 @@ require "spec_helper"
 
 describe "attribute" do
   let(:setlistfm) { Setlistfm.new }
+  context "VERSION" do
+    it "has constant VERSION" do
+      expect(Setlistfm::VERSION).to eq "0.0.1"
+    end
+    it "can't modify constant API_VERSION" do
+      expect{Setlistfm::VERSION = "666"}.to raise_error RuntimeError
+      expect(Setlistfm::VERSION).not_to eq "666"
+    end
+  end
   context "api_version" do
     it "has an api_version" do
       expect(setlistfm::api_version).to eq "0.1"
