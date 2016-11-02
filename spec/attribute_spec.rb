@@ -6,7 +6,7 @@ describe "attribute" do
     it "has constant VERSION" do
       expect(Setlistfm::VERSION).to eq "0.0.1"
     end
-    it "can't modify constant API_VERSION" do
+    it "can't modify constant VERSION" do
       expect{Setlistfm::VERSION = "666"}.to raise_error RuntimeError
       expect(Setlistfm::VERSION).not_to eq "666"
     end
