@@ -1,4 +1,5 @@
 require "spec_helper"
+require "pp"
 
 describe Setlistfm do
   let(:setlistfm) { Setlistfm.new }
@@ -30,6 +31,9 @@ describe Setlistfm do
     context "env" do
       it "is valid User-Agent" do
         expect(res.env.request_headers["User-Agent"]).to eq "Setlistfm/#{Setlistfm::VERSION}"
+      end
+      it "has a url" do
+        expect(res.env.url.to_s).to eq "https://api.setlist.fm/rest/0.1/artist/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab.json"
       end
     end
   end
