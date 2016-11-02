@@ -12,4 +12,5 @@ class Setlistfm
     @api_version = API_VERSION
     @url = url
   end
+  freeze
 end
