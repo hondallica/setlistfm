@@ -37,4 +37,16 @@ describe Setlistfm do
       end
     end
   end
+  context "fail" do
+    let(:setlistfm) { Setlistfm.new }
+    it "mbid is nil" do
+      expect{ setlistfm.artist() }.to raise_error ArgumentError
+    end
+    it "when invalid mbid" do
+      expect{ setlistfm.artist("aaa") }.to raise_error Faraday::ParsingError
+    end
+    it "mbid is not found" do
+      expect{ setlistfm.artist("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa") }.to raise_error Faraday::ParsingError
+    end
+  end
 end
