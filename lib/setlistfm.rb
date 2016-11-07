@@ -26,5 +26,10 @@ class Setlistfm
     @http.get "/rest/#{@api_version}/artist/#{mbid}.json"
   end
 
+  def city geo_id
+    @http.get "/rest/#{@api_version}/city/#{geo_id}.json"
+  end
+
+
   freeze
 end

@@ -2,9 +2,9 @@ require "spec_helper"
 
 describe Setlistfm do
   let(:setlistfm) { Setlistfm.new }
-  let(:mbid) { "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab" }
+  let(:geo_id) { 5392171 }
   context "success" do
-    let(:res) { setlistfm.artist mbid }
+    let(:res) { setlistfm.city geo_id }
     it "is a Faraday::Response class" do
       expect(res.class).to eq Faraday::Response
     end
@@ -15,8 +15,8 @@ describe Setlistfm do
       it "is a Hash class" do
         expect(res.body.class).to eq Hash
       end
-      it "has artist key" do
-        expect(res.body).to include "artist"
+      it "has city key" do
+        expect(res.body).to include "city"
       end
     end
     context "headers" do
@@ -32,20 +32,17 @@ describe Setlistfm do
         expect(res.env.request_headers["User-Agent"]).to eq "Setlistfm/#{Setlistfm::VERSION}"
       end
       it "has a url" do
-        expect(res.env.url.to_s).to eq "https://api.setlist.fm/rest/0.1/artist/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab.json"
+        expect(res.env.url.to_s).to eq "https://api.setlist.fm/rest/0.1/city/5392171.json"
       end
     end
   end
   context "fail" do
     let(:setlistfm) { Setlistfm.new }
-    it "mbid is nil" do
-      expect{ setlistfm.artist() }.to raise_error ArgumentError
+    it "geo_id is nil" do
+      expect{ setlistfm.city() }.to raise_error ArgumentError
     end
-    it "when invalid mbid" do
-      expect{ setlistfm.artist("aaa") }.to raise_error Faraday::ParsingError
-    end
-    it "mbid is not found" do
-      expect{ setlistfm.artist("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa") }.to raise_error Faraday::ParsingError
+    it "when invalid gei_id" do
+      expect{ setlistfm.city("aaa") }.to raise_error Faraday::ParsingError
     end
   end
 end
