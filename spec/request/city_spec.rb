@@ -5,8 +5,8 @@ describe Setlistfm do
   let(:geo_id) { 5392171 }
   context "success" do
     let(:res) { setlistfm.city geo_id }
-    it "is a Faraday::Response class" do
-      expect(res.class).to eq Faraday::Response
+    it "has a request url" do
+      expect(res.env.url.to_s).to eq "https://api.setlist.fm/rest/0.1/city/5392171.json"
     end
     it "is status code 200" do
       expect(res.status).to eq 200
@@ -17,22 +17,6 @@ describe Setlistfm do
       end
       it "has city key" do
         expect(res.body).to include "city"
-      end
-    end
-    context "headers" do
-      it "is a Faraday::Utils::Headers class" do
-        expect(res.headers.class).to eq Faraday::Utils::Headers
-      end
-      it "content-type is application/json" do
-        expect(res.headers["content-type"]).to include "application/json"
-      end
-    end
-    context "env" do
-      it "is valid User-Agent" do
-        expect(res.env.request_headers["User-Agent"]).to eq "Setlistfm/#{Setlistfm::VERSION}"
-      end
-      it "has a url" do
-        expect(res.env.url.to_s).to eq "https://api.setlist.fm/rest/0.1/city/5392171.json"
       end
     end
   end
