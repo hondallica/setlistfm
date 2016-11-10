@@ -30,6 +30,9 @@ class Setlistfm
     @http.get "/rest/#{@api_version}/city/#{geo_id}.json"
   end
 
+  def setlist setlist_id
+    @http.get "/rest/#{@api_version}/setlist/#{setlist_id}.json"
+  end
 
   freeze
 end
