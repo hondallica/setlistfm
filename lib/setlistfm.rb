@@ -15,9 +15,9 @@ class Setlistfm
     @url = url
     @http = Faraday.new(@url) do |f|
       f.headers[:user_agent] = "Setlistfm/#{Setlistfm::VERSION}"
-      f.headers["Accept-Encoding"] = "gzip"
       f.request  :url_encoded
       f.response :json
+      f.use      :gzip
       f.adapter  :net_http
     end
   end
@@ -33,6 +33,5 @@ class Setlistfm
   def setlist setlist_id
     @http.get "/rest/#{@api_version}/setlist/#{setlist_id}.json"
   end
-
   freeze
 end

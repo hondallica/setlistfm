@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Setlistfm do
+describe "Setlistfm.city" do
   let(:setlistfm) { Setlistfm.new }
   let(:geo_id) { 5392171 }
   context "success" do
@@ -25,7 +25,7 @@ describe Setlistfm do
     it "geo_id is nil" do
       expect{ setlistfm.city() }.to raise_error ArgumentError
     end
-    it "when invalid gei_id" do
+    it "when invalid geo_id" do
       expect{ setlistfm.city("aaa") }.to raise_error Faraday::ParsingError
     end
   end

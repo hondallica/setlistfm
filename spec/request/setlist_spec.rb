@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Setlistfm do
+describe "Setlistfm.setlist" do
   let(:setlistfm) { Setlistfm.new }
   let(:setlist_id) { "3bd6440c" }
   context "success" do
@@ -15,7 +15,7 @@ describe Setlistfm do
       it "is a Hash class" do
         expect(res.body.class).to eq Hash
       end
-      it "has city key" do
+      it "has setlist key" do
         expect(res.body).to include "setlist"
       end
     end

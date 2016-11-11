@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Setlistfm do
+describe "Setlistfm.artist" do
   let(:setlistfm) { Setlistfm.new }
   let(:mbid) { "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab" }
   context "success" do
