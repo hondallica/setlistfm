@@ -33,5 +33,10 @@ class Setlistfm
   def setlist setlist_id
     @http.get "/rest/#{@api_version}/setlist/#{setlist_id}.json"
   end
+
+  def user user_id
+    @http.get "/rest/#{@api_version}/user/#{user_id}.json"
+  end
+
   freeze
 end
