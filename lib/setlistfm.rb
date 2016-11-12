@@ -42,5 +42,9 @@ class Setlistfm
     @http.get "/rest/#{@api_version}/venue/#{venue_id}.json"
   end
 
+  def artist_setlists mbid
+    @http.get "/rest/#{@api_version}/artist/#{mbid}/setlists.json"
+  end
+
   freeze
 end
