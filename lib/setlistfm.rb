@@ -50,5 +50,9 @@ class Setlistfm
     @http.get "/rest/#{@api_version}/setlist/lastFm/#{lastfm_event_id}.json"
   end
 
+  def setlist_version version_id
+    @http.get "/rest/#{@api_version}/setlist/version/#{version_id}.json"
+  end
+
   freeze
 end
