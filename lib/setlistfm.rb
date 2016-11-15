@@ -54,5 +54,9 @@ class Setlistfm
     @http.get "/rest/#{@api_version}/setlist/version/#{version_id}.json"
   end
 
+  def user_attended user_id
+    @http.get "/rest/#{@api_version}/user/#{user_id}/attended.json"
+  end
+
   freeze
 end
