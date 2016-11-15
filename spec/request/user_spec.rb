@@ -26,7 +26,7 @@ describe "Setlistfm.user" do
       expect{ setlistfm.user() }.to raise_error ArgumentError
     end
     it "when invalid user_id" do
-      expect{ setlistfm.setlist("-") }.to raise_error Faraday::ParsingError
+      expect{ setlistfm.user("-") }.to raise_error Faraday::ParsingError
     end
   end
 end
