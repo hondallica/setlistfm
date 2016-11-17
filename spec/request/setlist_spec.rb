@@ -19,6 +19,12 @@ describe "Setlistfm.setlist" do
         expect(res.body).to include "setlist"
       end
     end
+    context "query" do
+      let(:res) { setlistfm.setlist setlist_id, {l: "ja"} }
+      it "l" do
+        expect(res.body["setlist"]["venue"]["city"]["country"]["@name"]).to eq "フィンランド"
+      end
+    end
   end
   context "fail" do
     let(:setlistfm) { Setlistfm.new }
