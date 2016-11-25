@@ -24,6 +24,8 @@ Or install it yourself as:
 require "setlistfm"
 
 setlistfm = Setlistfm.new
+res = setlistfm.artist "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab"
+
 ```
 
 ## Contributing
